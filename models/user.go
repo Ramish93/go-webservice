@@ -12,11 +12,11 @@ type User struct {
 }
 
 var(
-	users []*User
-	nextID = 1
+	users = []*User{}
+	nextID = 0
 )
 
-func GetUsers() []*User{
+func GetUsers() []*User {
 	return users
 }
 
@@ -51,7 +51,7 @@ func UpdateUser (u User)(User, error){
 	return User{}, fmt.Errorf("User %v not found", u.ID)
 }
 
-func RemoveUser (id int)(error){
+func RemoveUserByID (id int)(error){
 	for i, u := range users{
 		if u.ID == id {
 			users = append(users[:i], users[i +1:]...)
