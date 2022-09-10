@@ -1,7 +1,6 @@
 package models
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -21,10 +20,6 @@ func GetUsers() []*User {
 }
 
 func AddUser(u User)(User , error) {
-	if u.ID != 0 {
-		return User{}, errors.New("user must not have an ID")
-	}
-
 	u.ID = nextID
 	nextID++
 	users = append(users, &u)
@@ -32,7 +27,7 @@ func AddUser(u User)(User , error) {
 }
 
 func GetUserByID(id int) (User, error){
-	for _,u := range users{
+	for _, u := range users{
 		if u.ID == id{
 			return *u, nil
 		}
