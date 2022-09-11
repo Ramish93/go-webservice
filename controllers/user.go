@@ -65,7 +65,7 @@ func (uc *userController) post(w http.ResponseWriter, r *http.Request) {
 	u, err := uc.parseRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Could not parse User object"))
+		w.Write([]byte("Could not parse User"))
 		return
 	}
 	
@@ -83,7 +83,7 @@ func (uc *userController) put(id int, w http.ResponseWriter, r *http.Request)  {
 	u, err := uc.parseRequest(r)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Could not parse User object"))
+		w.Write([]byte("Could not parse User"))
 		return
 	}
 	u.ID = id
